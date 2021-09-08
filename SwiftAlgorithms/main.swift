@@ -22,5 +22,7 @@ import Foundation
 //let FindTheDifference_ASCII = FindTheDifference.FindTheDifference_ASCII("abcd", "abcde")
 //print(FindTheDifference_ASCII)
 
-let result = ThirdMax_Sort.thirdMax([1,2])
-print(result)
+//let result = ThirdMax_Sort.thirdMax([1,2])
+//print(result)
+
+InorderTraversalManager.start()
