@@ -25,4 +25,9 @@ import Foundation
 //let result = ThirdMax_Sort.thirdMax([1,2])
 //print(result)
 
-InorderTraversalManager.start()
+//InorderTraversalManager.start()
+
+//SameTree.start()
+
+Symmetric.start()
+

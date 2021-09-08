@@ -22,9 +22,8 @@ class InorderTraversalManager {
      *     }
      * }
      */
-    
+    //https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
     static func start(){
-        
         let initializerArray = [1,nil,2,3]
         let testNode = TreeNode.initializerRootNodeBy(initializerArray: initializerArray)
         let result = InorderTraversalManager.inorderTraversal(testNode)
