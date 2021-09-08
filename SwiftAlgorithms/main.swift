@@ -13,5 +13,14 @@ import Foundation
 //let 有效的字母异位词 = Sort_Anagram.isAnagram_Sort("aacc", "ccac")
 //print(有效的字母异位词)
 
-let missingNumber = MissNumbers.missingNumber([3,0,1])
-print(missingNumber)
+//let missingNumber = MissNumbers.missingNumber([3,0,1])
+//print(missingNumber)
+
+//let intersection = Sort_Intersection.intersection_II([1,2], [1,1])
+//print(intersection)
+
+//let FindTheDifference_ASCII = FindTheDifference.FindTheDifference_ASCII("abcd", "abcde")
+//print(FindTheDifference_ASCII)
+
+let result = ThirdMax_Sort.thirdMax([1,2])
+print(result)
