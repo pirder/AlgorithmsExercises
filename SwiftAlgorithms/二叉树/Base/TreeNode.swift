@@ -31,7 +31,8 @@ public class TreeNode {
             rootResult.right = initTreeNodeBy(element: arr[2])
             return rootResult
         }
-        
+        //保存当前的左右节点
+        var virtualQueue = [TreeNode]()
         var root = rootResult
         var index = 1
         for _ in 1..<arr.count {
@@ -41,13 +42,19 @@ public class TreeNode {
                 }
                 break
             }
+            if !virtualQueue.isEmpty {
+                root = virtualQueue.removeFirst()
+            }
             root.left = initTreeNodeBy(element: arr[index])
             root.right = initTreeNodeBy(element: arr[index+1])
+            
             if let left = root.left {
-                root = left
-            }else if let right = root.right {
-                root = right
+                virtualQueue.append(left)
             }
+            if let right = root.right {
+                virtualQueue.append(right)
+            }
+            
             index+=2
         }
         return rootResult

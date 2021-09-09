@@ -37,4 +37,6 @@ import Foundation
 
 //TreeIsBalancedManager.start()
 
-TreeMixDepthManager.start()
+//TreeMixDepthManager.start()
+
+TreePathSumManager.start()
