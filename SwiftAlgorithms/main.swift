@@ -7,6 +7,8 @@
 
 import Foundation
 
+//任何有强解包的地方 都已经命中判断不为空 （强解包安全）
+
 //217. 存在重复元素
 //let 存在重复元素 = ContainsDuplicateSolution.containsDuplicate_Sort([1,2,3,4])
 
@@ -29,5 +31,10 @@ import Foundation
 
 //SameTree.start()
 
-Symmetric.start()
+//Symmetric.start()
 
+//TreeMaxDepthManager.start()
+
+//TreeIsBalancedManager.start()
+
+TreeMixDepthManager.start()
