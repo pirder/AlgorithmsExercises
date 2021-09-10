@@ -83,8 +83,12 @@ extension TreeNode {
         while true {
             let maxSpacing = 2 * maxD - 1 //7
             let currentScaping = (maxSpacing - index) / (1<<index)
-            let temp = array.dropLast((array.count - 1<<index)%(array.count))
-            array.removeFirst((1<<index)%(array.count))
+            //取出前X个
+            let dropIndex = (array.count - 1<<index) >= 0 ? (array.count - 1<<index)%(array.count) : 0
+            let temp = array.dropLast(dropIndex)
+            //移除前X个
+            let removeIndex = (array.count - 1<<index) >= 0 ? (1<<index)%(array.count) : array.count
+            array.removeFirst(removeIndex)
             printLineWith(Scaping: currentScaping * 2, Depth: maxD, Array: temp.map({$0}))
             if index == maxD - 1  {
                 break

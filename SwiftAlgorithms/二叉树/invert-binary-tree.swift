@@ -11,7 +11,7 @@ class InvertBinaryTreeManager {
     //https://leetcode-cn.com/problems/invert-binary-tree/
     class func start(){
         
-        let arr = [4,2,7,1,3,6]
+        let arr =  [4,2,7,1,3,6,9]
 
         let rootNode = TreeNode.initializerRootNodeBy(initializerArray: arr)
         TreeNode.printStructionAboutTreeGraph(rootNode)
