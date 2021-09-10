@@ -36,14 +36,14 @@ public class TreeNode {
         var root = rootResult
         var index = 1
         for _ in 1..<arr.count {
+            if !virtualQueue.isEmpty {
+                root = virtualQueue.removeFirst()
+            }
             if index > arr.count-1 || index+1 > arr.count-1 {
                 if index == arr.count-1{
                     root.left = initTreeNodeBy(element: arr[index])
                 }
                 break
-            }
-            if !virtualQueue.isEmpty {
-                root = virtualQueue.removeFirst()
             }
             root.left = initTreeNodeBy(element: arr[index])
             root.right = initTreeNodeBy(element: arr[index+1])
@@ -148,8 +148,6 @@ extension TreeNode {
         }
         //第一个
         var scapingStr = addSacping(scaping)
-        
-        
         for index in 0..<arr.count {
             
             if index != 0 {
