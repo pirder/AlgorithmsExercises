@@ -68,3 +68,116 @@ public class TreeNode {
     }
     
 }
+
+extension TreeNode {
+    
+    /// 打印列表
+    /// - Parameter tree: tree
+    class func printStructionAboutTreeGraph(_ tree: TreeNode?) {
+        var index = 0
+        //先确定有多少个 深度
+        let maxD = maxDepth(tree)
+        //获取数组格式的数 显示过程好处理
+        var array = transformArrayBy(treeNode: tree)
+        print("====打印树的形状结构====\n")
+        while true {
+            let maxSpacing = 2 * maxD - 1 //7
+            let currentScaping = (maxSpacing - index) / (1<<index)
+            let temp = array.dropLast((array.count - 1<<index)%(array.count))
+            array.removeFirst((1<<index)%(array.count))
+            printLineWith(Scaping: currentScaping * 2, Depth: maxD, Array: temp.map({$0}))
+            if index == maxD - 1  {
+                break
+            }
+            index+=1
+        }
+        print("==================================================\n")
+
+    }
+    
+    ///转换为数组
+    class func transformArrayBy(treeNode root: TreeNode?) -> [Int?] {
+        var resultArr = [Int?]()
+        var virtualQueue = [TreeNode?]()
+        if root == nil {
+            return []
+        }
+        virtualQueue.append(root!)
+        while !virtualQueue.isEmpty {
+           
+
+            let rootTemp = virtualQueue.removeFirst()
+            resultArr.append(rootTemp?.val)
+            //教训注释===
+            do {
+            //
+            //     原想法 为nil 时候 不能够在进行传值了 叶子结点不用加了 但是对于数组而言在乎这个为nil的值 之前数中不在乎
+            //    结果出现后续还有节点 这种情况
+//                if rootTemp?.left != nil && rootTemp?.right != nil {
+//                virtualQueue.append(rootTemp?.left)
+//                virtualQueue.append(rootTemp?.right)
+//                }
+            };
+            virtualQueue.append(rootTemp?.left)
+            virtualQueue.append(rootTemp?.right)
+
+            //所以修改为 就算是原子结点 加入了是nil 后续也没有存在的结点 那说明是最后一个叶子结点 剩下的不用处理啦
+            if virtualQueue.compactMap({$0}).count == 0 {
+                break
+            }
+
+        }
+        return resultArr
+    }
+    
+    private class func maxDepth(_ root: TreeNode?) -> Int {
+        if root == nil { return 0 }
+        let leftWithRightMax = max( maxDepth(root?.left), maxDepth(root?.right))
+        return leftWithRightMax + 1
+    }
+    
+    ///打印每行
+    private class func printLineWith(Scaping scaping:Int,Depth maxDepth: Int, Array arr:[Int?]) {
+        var result = ""
+        let addSacping = { (_ count: Int) -> String in
+            var str = ""
+            for _ in 0..<count {
+                str+=" "
+            }
+            return str
+        }
+        //第一个
+        var scapingStr = addSacping(scaping)
+        
+        
+        for index in 0..<arr.count {
+            
+            if index != 0 {
+                if index % 2 != 0{
+                    scapingStr = addSacping( maxDepth * 8 / arr.count )
+                } else {
+                    scapingStr = addSacping(maxDepth * 8 / arr.count - 2 )
+                }
+            }
+            
+            result+=scapingStr
+            if let item = arr[index]  {
+                result+="\(item)"
+            } else {
+                result+="X"
+            }
+        }
+        
+        print(result)
+
+    }
+
+}
+
+extension TreeNode : Equatable {
+    
+    public static func == (lhs: TreeNode, rhs: TreeNode) -> Bool {
+        return lhs === rhs
+    }
+    
+}

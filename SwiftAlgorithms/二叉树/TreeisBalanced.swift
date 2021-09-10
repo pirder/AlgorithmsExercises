@@ -7,7 +7,7 @@
 
 import Foundation
 class TreeIsBalancedManager {
-    
+    //平衡二叉树
     class func start(){
         let arr =  [3,9,20,nil,nil,15,7]//[1,2,2,3,3,nil,nil,4,4]
         let rootNode = TreeNode.initializerRootNodeBy(initializerArray: arr)

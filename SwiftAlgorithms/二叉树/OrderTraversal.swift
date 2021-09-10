@@ -6,7 +6,8 @@
 //
 
 import Foundation
-class InorderTraversalManager {
+class OrderTraversalManager {
+    // 二叉树的遍历
     /**
      * Definition for a binary tree node.
      * public class TreeNode {
@@ -26,8 +27,15 @@ class InorderTraversalManager {
     static func start(){
         let initializerArray = [1,nil,2,3]
         let testNode = TreeNode.initializerRootNodeBy(initializerArray: initializerArray)
-        let result = InorderTraversalManager.inorderTraversal(testNode)
+        let result = OrderTraversalManager.inorderTraversal(testNode)
         print(result)
+        
+        let resultPreorder = OrderTraversalManager.preorderTraversal(testNode)
+        print(resultPreorder)
+        
+        let resultPostorder = OrderTraversalManager.postorderTraversal(testNode)
+        SALogging(resultPostorder)
+
     }
     
     //通过  0 ms    13.7 MB    Swift
@@ -46,4 +54,25 @@ class InorderTraversalManager {
         
         return result
     }
+    
+    static func preorderTraversal(_ root: TreeNode?) -> [Int] {
+        guard let root = root else {
+            return []
+        }
+        var result = [root.val]
+        result+=preorderTraversal(root.left)
+        result+=preorderTraversal(root.right)
+        return result
+    }
+    
+    static func postorderTraversal(_ root: TreeNode?) -> [Int] {
+        guard let root = root else {
+            return []
+        }
+        var result = postorderTraversal(root.left)
+        result+=postorderTraversal(root.right)
+        result+=[root.val]
+        return result
+    }
+    
 }

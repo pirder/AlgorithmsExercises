@@ -7,7 +7,7 @@
 
 import Foundation
 class TreePathSumManager {
-    
+    //路径总和
     class func start(){
         
         let arr = [5,4,8,11,nil,13,4,7,2,nil,nil,nil,1]

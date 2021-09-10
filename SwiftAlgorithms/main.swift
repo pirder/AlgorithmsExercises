@@ -27,7 +27,7 @@ import Foundation
 //let result = ThirdMax_Sort.thirdMax([1,2])
 //print(result)
 
-//InorderTraversalManager.start()
+//OrderTraversalManager.start()
 
 //SameTree.start()
 
@@ -39,4 +39,11 @@ import Foundation
 
 //TreeMixDepthManager.start()
 
-TreePathSumManager.start()
+//TreePathSumManager.start()
+
+//获取线程数
+//ThreadCountTest.testGCDThreadCount()
+
+//InvertBinaryTreeManager.start()
+
+InvertBinaryTreeManager.start()

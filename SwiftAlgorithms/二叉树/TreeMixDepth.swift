@@ -7,7 +7,7 @@
 
 import Foundation
 class TreeMixDepthManager {
-    
+    //二叉树的最小深度
     class func start(){
         
         let arr = [2,nil,3,nil,4,nil,5,nil,6]//[3,9,20,nil,nil,15,7]
