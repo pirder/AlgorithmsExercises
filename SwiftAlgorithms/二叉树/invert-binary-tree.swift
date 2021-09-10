@@ -12,7 +12,7 @@ class InvertBinaryTreeManager {
     class func start(){
         
         let arr =  [4,2,7,1,3,6,9]
-
+        
         let rootNode = TreeNode.initializerRootNodeBy(initializerArray: arr)
         TreeNode.printStructionAboutTreeGraph(rootNode)
         let result = InvertBinaryTreeManager().invertTree_DFS(rootNode)
@@ -27,7 +27,7 @@ class InvertBinaryTreeManager {
         }
         return root
     }
-
+    
     //通过 4 ms    13.4 MB    
     func invertTree_BFS(_ root: TreeNode?) -> TreeNode? {
         if root == nil || (root?.left == nil && root?.right == nil) {
@@ -54,6 +54,6 @@ class InvertBinaryTreeManager {
         return rootResult
         
     }
-
+    
     
 }

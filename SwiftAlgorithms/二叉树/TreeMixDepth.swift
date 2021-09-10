@@ -24,18 +24,18 @@ class TreeMixDepthManager {
         let minDepthleft = minDepth_DFS(root?.left)
         let minDepthRight = minDepth_DFS(root?.right)
         /* 方法一
-        var minDepth = min(minDepthleft, minDepthRight)
-        if minDepthleft == 0 {
-            minDepth = minDepthRight
-        }
-        if minDepthRight == 0 {
-            minDepth = minDepthleft
-        }
+         var minDepth = min(minDepthleft, minDepthRight)
+         if minDepthleft == 0 {
+         minDepth = minDepthRight
+         }
+         if minDepthRight == 0 {
+         minDepth = minDepthleft
+         }
          */
         //方法二
         let minDepth = min(minDepthleft == 0 ? minDepthRight : minDepthleft,
                            minDepthRight == 0 ? minDepthleft : minDepthRight)
-
+        
         
         return minDepth + 1
     }

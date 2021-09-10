@@ -31,5 +31,5 @@ class  ThirdMax_Sort {
         }
         return thirdMax == Int.min ? maxNumber : thirdMax
     }
-
+    
 }

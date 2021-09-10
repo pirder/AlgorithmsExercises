@@ -35,5 +35,5 @@ class TreeIsBalancedManager {
         let leftWithRightMax = max( maxDepth_DFS(root?.left), maxDepth_DFS(root?.right))
         return leftWithRightMax + 1
     }
-
+    
 }

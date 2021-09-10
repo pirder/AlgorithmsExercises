@@ -35,7 +35,7 @@ class OrderTraversalManager {
         
         let resultPostorder = OrderTraversalManager.postorderTraversal(testNode)
         SALogging(resultPostorder)
-
+        
     }
     
     //通过  0 ms    13.7 MB    Swift

@@ -25,7 +25,7 @@ class ThreadCountTest {
         }
         return
     }
-
+    
     static func testGCDThreadCount(){
         
         let semaphore = DispatchSemaphore.init(value: 1)
@@ -47,7 +47,7 @@ class ThreadCountTest {
                 semaphore.wait()
                 set.remove(thread)
                 semaphore.signal()
-
+                
                 SALog("结束\(thread)")
                 return
             }

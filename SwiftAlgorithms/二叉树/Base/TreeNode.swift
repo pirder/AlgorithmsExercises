@@ -96,7 +96,7 @@ extension TreeNode {
             index+=1
         }
         print("==================================================\n")
-
+        
     }
     
     ///转换为数组
@@ -108,28 +108,28 @@ extension TreeNode {
         }
         virtualQueue.append(root!)
         while !virtualQueue.isEmpty {
-           
-
+            
+            
             let rootTemp = virtualQueue.removeFirst()
             resultArr.append(rootTemp?.val)
             //教训注释===
             do {
-            //
-            //     原想法 为nil 时候 不能够在进行传值了 叶子结点不用加了 但是对于数组而言在乎这个为nil的值 之前数中不在乎
-            //    结果出现后续还有节点 这种情况
-//                if rootTemp?.left != nil && rootTemp?.right != nil {
-//                virtualQueue.append(rootTemp?.left)
-//                virtualQueue.append(rootTemp?.right)
-//                }
+                //
+                //     原想法 为nil 时候 不能够在进行传值了 叶子结点不用加了 但是对于数组而言在乎这个为nil的值 之前数中不在乎
+                //    结果出现后续还有节点 这种情况
+                //                if rootTemp?.left != nil && rootTemp?.right != nil {
+                //                virtualQueue.append(rootTemp?.left)
+                //                virtualQueue.append(rootTemp?.right)
+                //                }
             };
             virtualQueue.append(rootTemp?.left)
             virtualQueue.append(rootTemp?.right)
-
+            
             //所以修改为 就算是原子结点 加入了是nil 后续也没有存在的结点 那说明是最后一个叶子结点 剩下的不用处理啦
             if virtualQueue.compactMap({$0}).count == 0 {
                 break
             }
-
+            
         }
         return resultArr
     }
@@ -171,9 +171,9 @@ extension TreeNode {
         }
         
         print(result)
-
+        
     }
-
+    
 }
 
 extension TreeNode : Equatable {
